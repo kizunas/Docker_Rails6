@@ -3,26 +3,23 @@
     <p class="card-text"><%= post.content %></p>
     <%= link_to 'Show', post, class: "btn btn-outline-primary" %>
     <%= link_to 'Edit', edit_post_path(post), class: "btn btn-outline-primary" %>
-    <%= form_with url: post, method: :delete, class: "btn btn-outline-danger" do |f| %>
-      <div class="btn samazon-submit-button" data-toggle="modal" data-target="#buy-confirm-modal">削除</div>
-      <div class="modal fade" id="buy-confirm-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <%= form_with model: post, method: :delete, class: "btn btn-outline-danger" do |f| %>
+      <div data-bs-toggle="modal" data-bs-target="#staticBackdrop">削除</div>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">削除しますか？</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              <h5 class="modal-tite" id="staticBackdropLabel">本当に削除しますか？</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn samazon-favorite-button border-dark text-dark" data-dismiss="modal">閉じる</button>
-              <button type="submit" class="btn samazon-submit-button">削除</button>
+              <button type="button" class="btn samazon-favorite-button border-dark text-dark" data-bs-dismiss="modal">閉じる</button>
+              <button type="submit" class="btn btn-outline-danger">削除</button>
             </div>
           </div>
         </div>
       </div>
    <% end %>
-
    
     
      <div class="rightstage">
