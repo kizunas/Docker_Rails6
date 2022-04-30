@@ -1,0 +1,11 @@
+$("#delModal").modal("hide");
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+
+<!--// モーダルよびだし -->
+$("#modalArea").html(
+  "<%= j(render 'delete', post: @post) %>"
+);
+
+<!--// モーダル表示-->
+$("#modalArea").find(".modal").modal("show");
