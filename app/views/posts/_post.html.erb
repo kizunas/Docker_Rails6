@@ -3,7 +3,7 @@
     <p class="card-text"><%= post.content %></p>
     <%= link_to 'Show', post, class: "btn btn-outline-primary" %>
     <%= link_to 'Edit', edit_post_path(post), class: "btn btn-outline-primary" %>
-    <%= link_to  post, class: "btn btn-outline-danger", method: :delete, remote: true do %>
+    <%= link_to  post, class: "btn btn-outline-danger", method: :delete, local: false do %>
       <span class="align-middle btn-outline-dangers">Delete</span>      
     <% end %>      
 
