@@ -4,8 +4,9 @@
     <%= link_to 'Show', post, class: "btn btn-outline-primary" %>
     <%= link_to 'Edit', edit_post_path(post), class: "btn btn-outline-primary" %>
     
-    <%= form_with model: post, method: :delete do |f| %>
+    
       <div class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post.id %>">削除</div>
+      <%= form_with model: post, method: :delete do |f| %>
       <div class="modal fade" id="staticBackdrop<%= post.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -20,8 +21,9 @@
             </div>
           </div>
         </div>
+       <% end %>
       </div>
-   <% end %>
+   
    
     
      <div class="rightstage">
