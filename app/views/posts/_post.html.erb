@@ -3,13 +3,15 @@
     <p class="card-text"><%= post.content %></p>
     <%= link_to 'Show', post, class: "btn btn-outline-primary" %>
     <%= link_to 'Edit', edit_post_path(post), class: "btn btn-outline-primary" %>
-    <%= form_with model: post, method: :delete, class: "btn btn-outline-danger" do |f| %>
-      <div data-bs-toggle="modal" data-bs-target="#staticBackdrop">削除</div>
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    
+    <%= form_with model: post, method: :delete do |f| %>
+      <div class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post.id %>">削除</div>
+      <div class="modal fade" id="staticBackdrop<%= post.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-tite" id="staticBackdropLabel">本当に削除しますか？</h5>
+              <h5 class="modal-title" id="staticBackdropLabel">本当に削除しますか？</h5>
+              
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-footer">
