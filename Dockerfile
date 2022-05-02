@@ -28,10 +28,10 @@ RUN yarn install --check-files
 RUN bundle exec rails webpacker:compile
 
 # コンテナ起動時に実行させるスクリプトを追加
-# COPY entrypoint.sh /usr/bin/
-# RUN chmod +x /usr/bin/entrypoint.sh
-# ENTRYPOINT ["entrypoint.sh"]
-# EXPOSE 3000
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.sh"]
+EXPOSE 3000
 
 # # Rails サーバ起動
 # CMD ["rails", "server", "-b", "0.0.0.0"]
