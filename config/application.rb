@@ -11,6 +11,14 @@ module Myapp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+  # i18nのカスタム訳文ファイルのパスを明示する
+  # この例だと/config/locales/**(任意)/.yml または .rbを参照するよう定義
+	I18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+  # i18nのデフォルトロケールは:en（英語）なので、:ja（日本語）に変更する
+  I18n.default_locale = :ja
+  # エラーメッセージのフォーマットを変更
+  # config.active_model.i18n_customize_full_message = true
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

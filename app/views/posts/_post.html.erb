@@ -1,0 +1,35 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <p class="card-text"><%= post.content %></p>
+    <%= link_to 'Show', post, class: "btn btn-outline-primary" %>
+    <%= link_to 'Edit', edit_post_path(post), class: "btn btn-outline-primary" %>
+    
+    
+      <div class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%= post.id %>">削除</div>
+      <%= form_with model: post, method: :delete do |f| %>
+      <div class="modal fade" id="staticBackdrop<%= post.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">本当に削除しますか？</h5>
+              
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn samazon-favorite-button border-dark text-dark" data-bs-dismiss="modal">閉じる</button>
+              <button type="submit" class="btn btn-outline-danger">削除</button>
+            </div>
+          </div>
+        </div>
+       <% end %>
+      </div>
+   
+   
+    
+     <div class="rightstage">
+      <small class="text-primary rightstage">
+      <%= post.created_at.strftime('%Y/%m/%d') %>
+      </small>
+     </div>
+  </div>
+</div>
