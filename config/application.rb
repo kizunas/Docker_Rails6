@@ -16,6 +16,8 @@ module Myapp
 	I18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
   # i18nのデフォルトロケールは:en（英語）なので、:ja（日本語）に変更する
   I18n.default_locale = :ja
+  #日本時間へ変更
+  config.time_zone = 'Tokyo'
   # エラーメッセージのフォーマットを変更
   # config.active_model.i18n_customize_full_message = true
 
