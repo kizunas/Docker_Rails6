@@ -10,8 +10,9 @@
     </div>
   <% end %>
   <div class="field form-group">
-    <%= form.label :content %>
+    <%= form.label "メッセージ" %>
     <%= form.text_area :content, class:"form-control" %>
+    <%= form.hidden_field :post_id, :value =>params[:post_id] %>
   </div>
   <div class="actions mt-2">
     <%= form.submit class: "btn btn-primary" %>

@@ -1,5 +1,16 @@
-<h1>メッセージ</h1>
-
+<%= render partial:"posts/compost" %>
+<h1>Message</h1>
+<div class="card mb-3">
+  <div class="card-body">
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.content %></td>
+    #   たてにならぶように考える
+    # postidにひもづくようにする
+    </tr>
+  <% end %>
+  </div>
+</div>
 <%= render 'form', comment: @comment %>
 
 <%= link_to '戻る', posts_path %>

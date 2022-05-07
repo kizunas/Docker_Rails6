@@ -1,0 +1,11 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <p class="card-text"><%= @post.content %></p>
+
+     <div class="rightstage">
+      <small class="text-primary rightstage">
+      <%= @post.created_at.strftime('%Y/%m/%d') %>
+      </small>
+     </div>
+  </div>
+</div>
