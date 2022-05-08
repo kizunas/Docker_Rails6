@@ -1,16 +1,19 @@
-<%= render partial:"posts/compost" %>
-<h1>Message</h1>
-<div class="card mb-3">
-  <div class="card-body">
+<%= render 'posts/compost', post: @post %>
+
+
   <% @comments.each do |comment| %>
-    <tr>
-      <td><%= comment.content %></td>
-    #   たてにならぶように考える
-    # postidにひもづくようにする
-    </tr>
+   <div class="card coms">
+    <div class="card-body">    
+      <%= comment.content %>
+      <div class="rightstage">
+      <small class="text-primary rightstage">
+      <%= @post.created_at.strftime('%Y/%m/%d') %>
+      </small>
+     </div>
+    </div>
+   </div>    
   <% end %>
-  </div>
-</div>
+<h1>Message</h1> 
 <%= render 'form', comment: @comment %>
 
 <%= link_to '戻る', posts_path %>

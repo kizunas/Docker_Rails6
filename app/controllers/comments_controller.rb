@@ -12,9 +12,9 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comments = Comment.all
     @comment = Comment.new
     @post = Post.find(params[:post_id])
+    @comments = @post.comments
   end
 
   # GET /comments/1/edit
@@ -27,10 +27,10 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to root_path, notice: "登録しました。" }
+        format.html { redirect_to new_post_comment_path, notice: "登録しました。" }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to new_post_comment_path, notice: "Messageを入力してください。" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
