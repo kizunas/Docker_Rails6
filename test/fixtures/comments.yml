@@ -2,8 +2,6 @@
 
 one:
   context: MyText
-  comment: one
 
 two:
   context: MyText
-  comment: two

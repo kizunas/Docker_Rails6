@@ -1,0 +1,20 @@
+<%= render 'posts/compost', post: @post %>
+
+
+  <% @comments.each do |comment| %>
+   <div class="card coms">
+    <div class="card-body">    
+      <%= comment.content %>
+      <div class="rightstage">
+      <small class="text-primary rightstage">
+      <%= @post.created_at.strftime('%Y/%m/%d') %>
+      </small>
+     </div>
+    </div>
+   </div>    
+  <% end %>
+<h1>Message</h1> 
+<%= render 'form', comment: @comment %>
+
+<%= link_to '戻る', posts_path %>
+
