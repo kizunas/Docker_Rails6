@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :comment_create_validates, only: %i[ new create ]
 
   # GET /comments or /comments.json
   def index
@@ -13,8 +14,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
-    @post = Post.find(params[:post_id])
-    @comments = @post.comments
+    
   end
 
   # GET /comments/1/edit
@@ -24,13 +24,14 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @comment = Comment.new(comment_params)
+    
 
     respond_to do |format|
       if @comment.save
         format.html { redirect_to new_post_comment_path, notice: "登録しました。" }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { redirect_to new_post_comment_path, notice: "Messageを入力してください。" }
+        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
@@ -69,4 +70,10 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:content,:post_id)
     end
+
+    def comment_create_validates
+      @post = Post.find(params[:post_id])
+      @comments = @post.comments
+    end
+
 end
