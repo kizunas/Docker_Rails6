@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-   # postに値を入れ、コメントする(error_version)。
-  it "commentする(error)" do
+   # postに値を入れ、コメントする(valid)。
+  it "commentする(valid)" do
          post = Post.create(content:"テスト")
          comment = post.comments.new(content: nil)
-         expect(comment).to be_valid
+         comment.valid?
+         expect(comment.errors.added?(:content, :blank)).to be_truthy
   end
 end
 

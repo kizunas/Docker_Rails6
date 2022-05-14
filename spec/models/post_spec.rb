@@ -12,10 +12,10 @@ RSpec.describe Post, type: :model do
 end
 
 RSpec.describe Post, type: :model do
-  it "contentが空の場合(error)" do
+  it "contentが空の場合(valid)" do
     post = Post.new(content: nil)
     post.valid?
-    expect(post.errors[:content]).to include("can't be blank")
+    expect(post.errors.added?(:content, :blank)).to be_truthy
   end
 end
 
