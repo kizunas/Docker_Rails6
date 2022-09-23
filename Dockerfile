@@ -1,7 +1,6 @@
 FROM ruby:2.7.5
 
-# 環境変数の設定
-ENV RAILS_ENV=production
+
 
 # yarnパッケージ管理ツールをインストール
 # Yarnのレポジトリを有効化。レポジトリのGPGキーをcurlコマンドを使って取得する(debianはubuntuと互換性がある)
